@@ -11,6 +11,7 @@ The following example demonstrates how to load any image via UART0 (onboard USB-
    - [IDF Project in C/C++](#idf-project)
 - [Connect Pins](#connect-pins)
 - [Compile code](#compile-code)
+- [Run and Test](#run-and-test)
 
 - [How it works](#how-it-works)
 
@@ -46,3 +47,5 @@ The project follows code example included with idf framework. It uses CMake. The
 
 ## Run and Test
 
+
+## How it works
