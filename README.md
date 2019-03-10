@@ -28,13 +28,13 @@ like WROVER which will increase speed of transfer if you use PSI RAM (see notes)
 
 ## Code of Windows app and ESP firmware
 
-We essentially need a client-server or client-client communication in this case
-The data from PC is sent after selecting an image from very simple picture list that points to your folder with pictures
-By clicking on the picture the image is instantly sent to ESP32
+We essentially need a client-server or client-client communication in this case  
+The data from PC is sent after selecting an image from very simple picture list that points to your folder with pictures  
+By clicking on the picture the image is instantly sent to ESP32  
 
 ### WPF Application (C#)
-It is a very basic application based on WPF written in C#.NET
-The solution uses Visual Studio 2017 but feel welcome to upgrade or modify it so it compiles and works
+It is a very basic application based on WPF written in C#.NET  
+The solution uses Visual Studio 2017 but feel welcome to upgrade or modify it so it compiles and works  
 
 ### IDF Project
 The project follows code example included with idf framework. It uses CMake. The program awaits for UART event when COM data arrives from PC and sends it to TFT via SPI pins. 
@@ -58,8 +58,22 @@ The project follows code example included with idf framework. It uses CMake. The
 
 ## Compile Code
 
+Application tosend bitmap is compiled with Visual Studio 2017 as C# solution.  
+Just load the project (.sln) and run debugging or execute binary exe included with the source code.  
+Esp code requires CMake to compile - *idf.py -p COMX flash*  
+**Important: Do not run monitor as it blocks the acces to the com port**  
+
 
 ## Run and Test
-
+First just connect esp onboard usb to PC and make sure it is recognized  
+Next run Windoes wpf app called UartTest and select your picture to be lozaded  
+Note: it may take a second to load a full bitmap because UART is very slow  
+115200 bits/s is only 14kb/s so be patient during load)
 
 ## How it works
+In brief - windows app acts as a data server sending bytes instantly after clicking image.  
+Esp program waits for an UART_DATA event and starts loading the bitmap in screen portions because of memory limits.  
+It is defined as BLOCK_LINES which is DISPLAY_HEIGHT / (n). On 4Mb boards n>=2 however if you use PSRAM board n could be set to 1  
+If BLOCK_LINES=DISPLAY_HEIGHT you get maximum performance.
+I used 565 bitmap pixel format (Format16bppRgb565) which is sent already converted and resized on PC side.  
+Feel free to experiment with the code - it may turn out to be usefull :wink:
