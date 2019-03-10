@@ -40,7 +40,21 @@ The solution uses Visual Studio 2017 but feel welcome to upgrade or modify it so
 The project follows code example included with idf framework. It uses CMake. The program awaits for UART event when COM data arrives from PC and sends it to TFT via SPI pins. 
 
 ## Connect Pins
+<table ><tr><td>
 
+| LCD | PIN |
+| --- | --- |
+| CS | 15 |
+| MOSI | 13 |
+| CLK | 14 |
+| DC | 21 |
+| RST | 22 |
+| LED | 5 |
+ 
+ </td><td>
+<img src="rsc/lcd-pinout.jpg" alt="" height=100 /><img src="rsc/board-pinout1.jpg" alt="" height=100 /><img src="rsc/board-pinout2.jpg" alt="" height=100 />
+</td></tr>
+</table>
 
 ## Compile Code
 
