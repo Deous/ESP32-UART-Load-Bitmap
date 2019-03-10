@@ -73,7 +73,10 @@ Note: it may take a second to load a full bitmap because UART is very slow
 ## How it works
 In brief - windows app acts as a data server sending bytes instantly after clicking image.  
 Esp program waits for an UART_DATA event and starts loading the bitmap in screen portions because of memory limits.  
-It is defined as BLOCK_LINES which is DISPLAY_HEIGHT / (n). On 4Mb boards n>=2 however if you use PSRAM board n could be set to 1  
+It is defined as BLOCK_LINES which is DISPLAY_HEIGHT / (n). n is number of loaded image portions.
+On 4Mb boards n>=2 however if you use PSRAM board n could be set to 1  
 If BLOCK_LINES=DISPLAY_HEIGHT you get maximum performance.
 I used 565 bitmap pixel format (Format16bppRgb565) which is sent already converted and resized on PC side.  
+All the logging output is disabled and redirected to win app small port monitoring code.  
+The monitor is very simple and because of ANSI standard being processed there might be some ascii artifacts.  
 Feel free to experiment with the code - it may turn out to be usefull :wink:
