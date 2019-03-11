@@ -58,7 +58,7 @@ The project follows code example included with idf framework. It uses CMake. The
 
 ## Compile Code
 
-Application tosend bitmap is compiled with Visual Studio 2017 as C# solution.  
+Application tosend bitmap is compiled with Visual Studio 2017 as C# solution *(.NET 4.6.1).  
 Just load the project (.sln) and run debugging or execute binary exe included with the source code.  
 Esp code requires CMake to compile - *idf.py -p COMX flash*  
 **Important: Do not run monitor as it blocks the acces to the com port**  
