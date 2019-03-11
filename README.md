@@ -80,3 +80,7 @@ I used 565 bitmap pixel format (*Format16bppRgb565*) which is sent already conve
 All the logging output is disabled and redirected to win app small port monitoring code.  
 The monitor is very simple and because of ANSI standard being processed there might be some ascii artifacts.  
 Feel free to experiment with the code - it may turn out to be usefull :wink:
+
+Here is a result:  
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=_wxJmAGN7Mo" target="_blank"><img src="http://img.youtube.com/vi/_wxJmAGN7Mo/0.jpg" alt="" width="240" height="180" border="10" /></a>
+
